@@ -54,12 +54,11 @@ class Task extends Model
         return $this->belongsTo(User::class, 'created_by');
     }
 
-    public function evidences(): BelongsToMany
-    {
-        return $this->belongsToMany(Evidence::class, 'evidence_task')
-            ->withPivot('linked_by')
-            ->withTimestamps();
-    }
+ public function evidences(): BelongsToMany
+{
+    return $this->belongsToMany(Evidence::class, 'evidence_task')
+        ->withPivot('linked_by');
+}
 
     public function hasEvidence(): bool
     {

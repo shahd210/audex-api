@@ -49,7 +49,7 @@ class EvidenceService
 
             $this->audit->logCreated($evidence);
 
-            return $evidence->load(['uploader', 'workspace']);
+            return $evidence->refresh()->load(['uploader', 'workspace']);
         });
     }
 
