@@ -23,7 +23,7 @@ class EvidenceResource extends JsonResource
             'size_bytes' => $this->size_bytes,
             'extraction_status' => $this->extraction_status->value,
             'index_status' => $this->index_status->value,
-            'evidence_state' => $this->evidence_state->value,
+            'evidence_state' => $this->evidence_state?->value ?? 'planned',
             'expires_at' => $this->expires_at,
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at,

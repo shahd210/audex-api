@@ -16,6 +16,8 @@ class Evidence extends Model
 {
     use SoftDeletes;
 
+    protected $table = 'evidences';
+
     protected $fillable = [
         'workspace_id',
         'uploaded_by',
@@ -55,10 +57,9 @@ class Evidence extends Model
         return $this->belongsTo(User::class, 'uploaded_by');
     }
 
-    public function tasks(): BelongsToMany
-    {
-        return $this->belongsToMany(Task::class, 'evidence_task')
-            ->withPivot('linked_by')
-            ->withTimestamps();
-    }
+public function tasks(): BelongsToMany
+{
+    return $this->belongsToMany(Task::class, 'evidence_task')
+        ->withPivot('linked_by');
+}
 }

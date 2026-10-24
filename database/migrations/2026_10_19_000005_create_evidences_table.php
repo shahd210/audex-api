@@ -33,7 +33,7 @@ return new class extends Migration
         });
 
         Schema::create('evidence_task', function (Blueprint $table) {
-            $table->foreignId('evidence_id')->constrained()->cascadeOnDelete();
+            $table->foreignId('evidence_id')->constrained('evidences')->cascadeOnDelete();
             $table->foreignId('task_id')->constrained()->cascadeOnDelete();
             $table->foreignId('linked_by')->constrained('users');
             $table->timestamp('created_at')->useCurrent();
